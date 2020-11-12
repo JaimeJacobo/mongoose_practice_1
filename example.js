@@ -142,7 +142,6 @@ Student.deleteMany({ name: 'Arturo' })
 		console.log(result);
 	})
 	.catch((error) => {
-		response.render('error');
 		console.log(error);
 	});
 
@@ -154,7 +153,6 @@ Student.deleteOne({ name: 'Andrea' })
 		console.log(result);
 	})
 	.catch((error) => {
-		response.render('error');
 		console.log(error);
 	});
 
@@ -166,6 +164,5 @@ Student.findByIdAndRemove('5a3a7ecbc6ca8b9ce68bd41b')
 		console.log(result);
 	})
 	.catch((error) => {
-		response.render('error');
 		console.log(error);
 	});
