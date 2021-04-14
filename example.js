@@ -166,3 +166,30 @@ Student.findByIdAndRemove('5a3a7ecbc6ca8b9ce68bd41b')
 	.catch((error) => {
 		console.log(error);
 	});
+
+
+
+//BONUS: Para eliminar de un ID especifico el campo de __v (Esto viene de otro ejercicio)
+User.findById('6076f32e7d0918227655d76d')
+.then((result)=>{
+
+  const {username, email, password, age, payment, createdAt} = result
+
+  const newObject = {
+    username,
+    email,
+    password,
+    age,
+    forSaleBooks: [...result.forSaleBooks],
+    payment: payment ? true : false,
+    createdAt
+  }
+
+  User.findOneAndReplace({_id: result._id}, newObject)
+  .then((result2)=>{
+    console.log(result2)
+  })
+})
+.catch((err)=>{
+  console.log(err)
+})
